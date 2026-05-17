@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<html>
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0">
+	<style> 
+		/*body{
+  margin:0;
+  padding:0;
+  font-family:sans-serif;
+  background: radial-gradient(circle at top , #0f2027, #203a43, #2c5364);
+  background-size: 200% 200%;
+  animation: moveBG 10s ease infinite;
+  color:white;
+}
+
+  @keyframes moveBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}*/
+body{margin:0;height:100vh;background: linear-gradient(135deg,#1e3c72,#2a5298); flex-direction:column;}
+a{text-decoration:none;color:whitesmoke;font-weight:bold;}
+.box{width: 250px;text-align:center; padding: 20px;border-radius: 20px;background: rgba(255, 255, 0, 0.1); backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: 0.3s;font-size:20px;flex:1 1 250px}
+.ctnt a:hover{transform: scale(1.2);color:#fa8072;}
+li:hover{transform: scale(1.2);}
+.container{display:flex;gap:30px;flex-wrap:wrap;justify-content:center}
+.head{font-size: 28px;color:darkgoldenrod;font-family: cursive;}
+img{width:25vw; max-width:120px;height:auto;border-radius: 50%;box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s;}
+img:hover{transform: scale(1.1);box-shadow:0 6px 20px rgba(0, 0, 0, 0.5);}
+.tag{text-align: center;font-size:25px;font-style: italic;margin-top: -5px;letter-spacing: 1px;animation:fadeInOut 3s ease-in-out infinite;color:rosybrown;font-family: sans-serif;font-weight:bolder;}
+/*@keyframes fade{0%{opacity: 0.5;} 50%{opacity: 1.0;}100%{opacity: 0.5;}}*/
+/*@keyframes shake{0%{transform:translateX(0);}25%{transform: translateX(-5);}50%{transform: translateX(5px);}75%{transform: translateX(-5px);}100%{transform: translateX(0px);}}*/
+/*@keyframes scaleUp{from{transform: scale(1);}to{transform: scale(1.5);}}*/
+@keyframes fadeInOut{0%{opacity:1;} 50%{opacity: 0.3;} 100%{opacity:1;}}
+/*h1{font-size:50px;font-weight: bold;text-transform: uppercase;background: linear-gradient(270deg,red,blue,yellow,green,purple);background-size: 800% 800%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation: colorMove 4s ease infinite;}
+@keyframes colorMove{0%{background-position: 0% 50%;} 50%{background-position: 100% 50%;} 100%{background-position: 0% 50%;}}
+@keyframes rotateText{0%{transform:rotate(0deg);} 25%{transform: rotate(5deg);} 50%{transform: rotate(0deg);} 75%{transform: rotate(-5deg);} 100%{transform: rotate(0deg);}} */
+.prashn{font-family: fantasy;}
+.ans{font-family: cursive;}
+h1{font-size: 4vw;
+  background:linear-gradient(#800000, #ff6347);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing: 2px;
+  animation: fadeMove 3s ease-in-out infinite;}
+@keyframes fadeMove{0%{opacity: 1.2;transform: translateY(8px);}50%{opacity: 2;transform: translateY(0px);}100%{opacity: 1.2;transform: translateY(8px);}}
+	</style>
+</head>
+<body>
+  <h1 align="center"><b><i><font class="prashn">प्रश्न</font><font class="ans">ANSWER</font></i></b></h1>
+  <h6 align="center"><img src="pehla.jpeg" alt="Logo" width="100" align="center"></h6>
+  <p class="tag"><u type="dotted">~~प्रयास>>>>सीख>>>>सफलता~~</u></p>
+  <br><br><br>
+  <div class="container">
+    <div class="box">
+      <h2 class="head">>>>Mini test<<<</h2>
+      <ul type="circle" class="ctnt">
+        <li  ><a href="index.html" onclick="return confirm('After Pressing OK button Your Test Start....')">Reasoning Test</a></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2 class="head">>>>Sessional Test<<<</h2>
+      <ul type="circle" class="ctnt">
+        <li > Previous Year Ques.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2 class="head">>>>PYQ's<<<</h2>
+      <ul type="circle" class="ctnt">
+        <li>English Notes</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

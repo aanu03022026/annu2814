@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>
+            Login Page
+        </title>
+        <style>
+            body{display: flex;background-color: darkolivegreen;align-items: center;justify-content: center;height:100vh;margin: 0;}
+            div{background-color: white;width:300px;padding: 30px;border-radius: 10px;box-shadow: 0 4px 8px rgba(0,0,0,0.2);text-align: center;}
+        </style>
+        </head>
+        <body>
+            <div>
+                <h1 align=center>Login</h1>
+                <form action="/login" method="POST">
+                    <input type="text" placeholder="Enter Username" name="username"><br><br>
+                    <input type="password" placeholder="Enter Password" name="password"><br><br>
+                    <button type="submit">Login</button>
+
+                    <h3 align="center">Don't have an account? <a href="/register">Register here</a></h3>
+                </form>
+            </div>
+        </body>
+    </head>
+</html> 
