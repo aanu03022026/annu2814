@@ -49,6 +49,10 @@ def login():
     else:
         return "Invalid Login or Password"
 
+@app.route("/quiz")
+def quiz():
+    return render_template("Quizpage.html")
+
 @app.route("/home")
 def homepage():
     return render_template("home.html")
