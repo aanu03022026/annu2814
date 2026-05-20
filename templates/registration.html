@@ -23,13 +23,14 @@
         </style>
     </head>
     <body>
-        <div class="container" align="center">
+        <div class="container" align="center" justify-content="center">
             <h1>Registration Page</h1>
             <form action="/register" method="POST">
-                <b>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="text" name="username" placeholder="Enter Your Name"><br><br>
-                <b>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="email" name="email" placeholder="Enter Your Email"><br><br>
-                <b>Password:&nbsp;</b><input type="password" name="password" placeholder="Enter Your Password"><br><br>
-                <h1 align="right"><button type="submit" >Register</button></h1>
+                <b>Name:&nbsp;</b><input type="text" name="username" placeholder="Enter Your Username" required minlength="10"><br><br>
+                <b>Email:&nbsp;</b><input type="email" name="email" placeholder="Enter Your Email" required><br><br>
+                <b>Password:&nbsp;</b><input type="password" name="password" placeholder="Enter Your Password" minlength="8" maxlength="20" required><br><br>
+                <b>Phone:&nbsp;<select><option>+91</option></select></b><input type="tel" name="phone" placeholder="Enter Your Phone Number" required minlength="10" maxlength="12"><br><br>
+                <h1 align="right"><button type="submit" style="background-color: aquamarine;>Register</button></h1>
             </form>
             </div>
             </body>
