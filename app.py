@@ -51,7 +51,7 @@ def login():
 
 @app.route("/quiz")
 def quiz():
-    return render_template("Quizpage.html")
+    return render_template("quz.html")
 
 @app.route("/home")
 def homepage():
