@@ -58,7 +58,12 @@ def login():
             <script>
             window.location.href='/home';</script>"""
     else:
-        return "Invalid Login or Password"
+        return"""
+    <script>
+    alert("Invalid Login or Password , Please Try Again With Correct One")
+    window.location.href='/';
+    </script>"""
+          
 
 @app.route("/quiz")
 def quizp():
