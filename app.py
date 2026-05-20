@@ -12,6 +12,9 @@ conn.close()
 def home():
     return render_template("login.html")
 
+@app.route("/register")
+def register_page():
+    return render_template("registration.html")
 
 password=request.form["password"]
 if (len(password)>=8 and
@@ -23,9 +26,7 @@ if (len(password)>=8 and
     return "Strong Password.."
 else:
     return "Password Must Contain Uppercase,Lowercase,Number and Special Character"
-@app.route("/register")
-def register_page():
-    return render_template("registration.html")
+    
 @app.route("/register",methods=["POST"])
 def register():
     username=request.form["username"]
