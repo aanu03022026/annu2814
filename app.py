@@ -50,7 +50,7 @@ def login():
         return "Invalid Login or Password"
 
 @app.route("/quiz")
-def quiz():
+def quizp():
     return render_template("quz.html")
 
 @app.route("/home")
