@@ -52,6 +52,9 @@ h1{font-size: 4vw;
   <h6 align="center"><img src="pehla.jpeg" alt="Logo" width="100" align="center"></h6>
   <p class="tag"><u type="dotted">~~प्रयास>>>>सीख>>>>सफलता~~</u></p>
   <br><br><br>
+  {% if username %}
+  <h3 align="center" style="font-family:cursive;font-style: italic;font-variant-caps: titling-caps;color: #dd3e3e;">Welcome {{username}} </h3>
+  {% endif %}
   <div class="container">
     <div class="box">
       <h2 class="head">>>>Mini test<<<</h2>
@@ -72,5 +75,10 @@ h1{font-size: 4vw;
       </ul>
     </div>
   </div>
+  {% if username %}
+  <a href ="/logout" style="display:block;text-align:center;margin-top:20px;font-weight:bold;">
+    <button style="border-radius:4px; background-color: aquamarine;font-family:helvetica;;">Logout</button>
+    </a>
+{% endif %}
 </body>
 </html>
