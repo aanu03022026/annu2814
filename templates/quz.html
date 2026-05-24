@@ -43,7 +43,24 @@
 <h4 id="timer" style="background-color:lightcyan; font-family:inherit;border-block:ridge;border-radius:9px;border-style:outset;border-color:yellowgreen;">Time:30</h4>
 	<script>
 		let score=0;
-		let questions= [
+		let questions=[
+			{% for q in questions %}
+			{
+				q:"{{q[2]}}",
+
+				options:[
+					'{{q[3]}}',
+					'{{q[4]}}',
+					'{{q[5]}}',
+					'{{q[6]}}'
+				],
+				answer:"{{q[7]}}",
+				attempted:false,
+				review:false
+			},
+			{% endfor %}
+		];
+		/*let questions= [
 			{
 				q:"Ques.01-एक कूट भाषा में MINISTRY को YRTSINIM लिखा जाता है| उस भाषा में JUDICIAL को क्या लिखा जाएगा|", 
 				options:["JUDICAIL","AILDICUJ","DIDUJLAI","LAICIDUJ"],
@@ -212,7 +229,7 @@
 				attempted:false,
 				review:false
 			}
-		];
+		];*/
 		let current=0;
 		function loadquestion()
 		{
