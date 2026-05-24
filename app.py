@@ -132,12 +132,12 @@ def quizp(subjectname , limit , minutes):
         cur=conn.cursor()
 
         cur.execute(
-            "SELECT * FROM questions WHERE subjectname=? ORDER BY RANDOM() LIMIT ?",(subjectname,limit))
+            """SELECT * FROM questions WHERE subjectname=? ORDER BY RANDOM() LIMIT ?""",(subjectname,limit))
         questions=cur.fetchall()
 
         conn.close()
 
-        return render_template("qnz.html",
+        return render_template("quz.html",
                                questions=questions,
                                subjectname=subjectname,
                                minutes=minutes)
