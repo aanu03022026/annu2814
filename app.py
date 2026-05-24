@@ -9,6 +9,25 @@ cur.execute("""
 CREATE TABLE IF NOT EXISTS users(username TEXT , password TEXT)""")
 conn.commit()
 conn.close()
+
+conn=sqlite3.connect("question.db")
+cur=conn.cursor()
+cur.execute("""
+CREATE TABLE IF NOT EXISTS questions(id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+subjectname TEXT,
+
+question TEXT,
+option1 TEXT,
+option2 TEXT,
+option3 TEXT,
+option4 TEXT,
+
+answer TEXT
+)""")
+conn.commit()
+conn.close()
+
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -38,6 +57,28 @@ def register():
     conn.close()
 
     return f"Registered Successfully {username}"
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
+@app.route("/addquestion", methods=["POST"])
+def addquestion():
+    subjectname=request.form["subjectname"]
+    question=request.form["question"]
+    option1=request.form["option1"]
+    option2=request.form["option2"]
+    option3=request.form["option3"]
+    option4=request.form["option4"]
+    answer=request.form["answer"]
+    conn=sqlite3.connect("question.db")
+    cur=conn.cursor()
+    cur.execute("""
+    INSERT INTO questions(subjectname,question,option1,option2,option3,option4,answer)
+    VALUES(?,?,?,?,?,?,?)""",(subjectname,question,option1,option2,option3,option4,answer))
+    conn.commit()
+    conn.close()
+
+    return "Question Added Successfully"
+
 @app.route("/login")
 def login_page():
     return render_template("login.html")
@@ -70,7 +111,7 @@ def login():
     </script>"""
           
 
-@app.route("/quiz")
+'''@app.route("/quiz")
 def quizp():
     if "user" in session:
         return render_template("quz.html")
@@ -80,7 +121,28 @@ def quizp():
         alert("please Login First");
         window.location.href='/login';
         </script>"""
+'''
+@app.route("/quiz/<subjectname>")
+def quizp(subjectname):
+    if "user" in session:
+        conn=sqlite3.connect("question.db")
+        cur=conn.cursor()
 
+        cur.execute(
+            "SELECT * FROM questions WHERE subjectname=?",(subjectname,))
+        questions=cur.fetchall()
+
+        conn.close()
+
+        return render_template("qnz.html",
+                               questions=questions,
+                               subjectname=subjectname)
+    else:
+        return """<script>
+        alert("Please Login First");
+        window.location.href='/login';
+        </script>"""
+    
 @app.route("/home")
 def homepage():
     if "user" in session:
