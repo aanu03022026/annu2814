@@ -77,7 +77,10 @@ def addquestion():
     conn.commit()
     conn.close()
 
-    return "Question Added Successfully"
+    return"""<script>
+    alert("Question Added Successfully");
+    window.location.href='/admin';
+    </script>"""
 
 @app.route("/login")
 def login_page():
