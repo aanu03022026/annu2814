@@ -46,15 +46,9 @@
 		let questions=[
 			{% for q in questions %}
 			{
-				q:"{{q[2]}}",
-
-				options:[
-					'{{q[3]}}',
-					'{{q[4]}}',
-					'{{q[5]}}',
-					'{{q[6]}}'
-				],
-				answer:"{{q[7]}}",
+				q:"{{q.question}}",
+				options:["{{q.option1}}","{{q.option2}}","{{q.option3}}","{{q.option4}}"],
+				answer:"{{q.answer}}",		
 				attempted:false,
 				review:false
 			},
