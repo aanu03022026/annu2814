@@ -125,21 +125,22 @@ def quizp():
         window.location.href='/login';
         </script>"""
 '''
-@app.route("/quiz/<subjectname>")
-def quizp(subjectname):
+@app.route("/quiz/<subjectname>/<int:limit>/<int:minutes>")
+def quizp(subjectname , limit , minutes):
     if "user" in session:
         conn=sqlite3.connect("question.db")
         cur=conn.cursor()
 
         cur.execute(
-            "SELECT * FROM questions WHERE subjectname=?",(subjectname,))
+            "SELECT * FROM questions WHERE subjectname=? ORDER BY RANDOM() LIMIT ?",(subjectname,limit))
         questions=cur.fetchall()
 
         conn.close()
 
         return render_template("qnz.html",
                                questions=questions,
-                               subjectname=subjectname)
+                               subjectname=subjectname,
+                               minutes=minutes)
     else:
         return """<script>
         alert("Please Login First");
