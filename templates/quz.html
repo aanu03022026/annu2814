@@ -234,12 +234,12 @@
 		let current=0;
 		function loadquestion()
 		{
-			if (!questions || questions.length==0) return;{
+			if (!questions || questions.length==0) {
 			document.getElementById('question').innerText="No Question Available";
 				return;		
 			}
 			if (!questions[current]) {
-				console.log("No question at index:", current);
+				
 				document.getElementById('question').innerText="No Question Available";
 				return;
 			}
@@ -397,7 +397,7 @@
 			}
 			else
 			{
-				document.body.innerHTML="<h3>Your Test is Finished....!<br> Your Score Is >>>"+score+"</h3><h6><br>Total Attempted Question="+sts.attempted+"<br>Not Attempted="+sts.unattempted+"<br>Mark For Review="+sts.review;"</h6>"
+				document.body.innerHTML="<h3>Your Test is Finished....!<br> Your Score Is >>>"+score+"</h3><h6><br>Total Attempted Question="+sts.attempted+"<br>Not Attempted="+sts.notattempted+"<br>Mark For Review="+sts.review;"</h6>";
 			}
 		}
 		function mark()

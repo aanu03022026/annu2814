@@ -6,7 +6,7 @@ app.secret_key="anquiz"
 conn=sqlite3.connect("users.db")
 cur=conn.cursor()
 cur.execute("""
-CREATE TABLE IF NOT EXISTS users(username TEXT , password TEXT)""")
+CREATE TABLE IF NOT EXISTS users(username TEXT , password TEXT) , email TEXT""")
 conn.commit()
 conn.close()
 
@@ -137,8 +137,19 @@ def quizp(subjectname , limit , minutes):
 
         conn.close()
 
+        quiz_data=[]
+
+        for q in questions:
+            quiz_data.append({
+                "q":q[2],
+                "options":[q[3],q[4],q[5],q[6]],
+                "answer":q[7],
+                "attempted":False,
+                "review":False
+                })
+
         return render_template("quz.html",
-                               questions=questions,
+                               questions=quiz_data,
                                subjectname=subjectname,
                                minutes=minutes)
     else:
