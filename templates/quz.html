@@ -43,8 +43,8 @@
 <h4 id="timer" style="background-color:lightcyan; font-family:inherit;border-block:ridge;border-radius:9px;border-style:outset;border-color:yellowgreen;">Time:30</h4>
 	<script>
 		let score=0;
-		let questions=[
-			{% for q in questions %}
+		let questions={{questions|tojson}};
+			/*{% for q in questions %}
 			{
 				q:"{{q[2]}}",
 
@@ -59,7 +59,7 @@
 				review:false
 			},
 			{% endfor %}
-		];
+		];*/
 		console.log(questions);
 		/*let questions= [
 			{
@@ -234,6 +234,31 @@
 		let current=0;
 		function loadquestion()
 		{
+			if (!questions || questions.length==0) return;{
+			document.getElementById('question').innerText="No Question Available";
+				return;		
+			}
+			if (!questions[current]) {
+				console.log("No question at index:", current);
+				document.getElementById('question').innerText="No Question Available";
+				return;
+			}
+			console.log("current:",current);
+			document.getElementById('timer').innerText="Time:";
+			document.getElementById('question').innerText=questions[current].q;
+			document.getElementById('op1').innerText=questions[current].options[0];
+			document.getElementById('op2').innerText=questions[current].options[1];
+			document.getElementById('op3').innerText=questions[current].options[2];
+			document.getElementById('op4').innerText=questions[current].options[3];
+
+			document.getElementById("op1").style.background="";
+			document.getElementById("op2").style.background="";
+			document.getElementById("op3").style.background="";
+			document.getElementById("op4").style.background="";
+
+			loadplt();
+		}
+		/*{
 			console.log("current:",current);
 			document.getElementById('timer').innerText="Time:";
 			document.getElementById('question').innerText=questions[current].q;
@@ -249,10 +274,10 @@
 			document.getElementById("op4").style.background="";
 			loadplt();
 
-		}
+		
 		loadquestion ();
-		loadplt();
-		let time={{minutes}}*60;
+		loadplt();*/
+		let time={{minutes | default:(30)}}*60;
 		let timer=setInterval(function() {
 			let hours=Math.floor(time/3600);
 			let minutes=Math.floor((time%3600)/60);
