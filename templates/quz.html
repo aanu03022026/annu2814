@@ -43,8 +43,9 @@
 <h4 id="timer" style="background-color:lightcyan; font-family:inherit;border-block:ridge;border-radius:9px;border-style:outset;border-color:yellowgreen;">Time:30</h4>
 	<script>
 		let score=0;
-		let questions={{questions|tojson}};
-			/*{% for q in questions %}
+		//let questions={{questions|tojson}};
+			let questions= [
+				{% for q in questions %}
 			{
 				q:"{{q[2]}}",
 
@@ -60,7 +61,7 @@
 			},
 			{% endfor %}
 		];
-		console.log(questions);*/
+		console.log(questions);
 		/*let questions= [
 			{
 				q:"Ques.01-एक कूट भाषा में MINISTRY को YRTSINIM लिखा जाता है| उस भाषा में JUDICIAL को क्या लिखा जाएगा|", 
@@ -245,11 +246,11 @@
 			}
 			console.log("current:",current);
 			document.getElementById('timer').innerText="Time:";
-			document.getElementById('question').innerText=questions[current].q;
-			document.getElementById('op1').innerText=questions[current].options[0];
-			document.getElementById('op2').innerText=questions[current].options[1];
-			document.getElementById('op3').innerText=questions[current].options[2];
-			document.getElementById('op4').innerText=questions[current].options[3];
+			document.getElementById('question').innerText=questions[current][2];
+			document.getElementById('op1').innerText=questions[current][3];
+			document.getElementById('op2').innerText=questions[current][4];
+			document.getElementById('op3').innerText=questions[current][5];
+			document.getElementById('op4').innerText=questions[current][6];
 
 			document.getElementById("op1").style.background="";
 			document.getElementById("op2").style.background="";
@@ -258,7 +259,8 @@
 
 			loadplt();
 		}
-		/*{
+		/*
+		{
 			console.log("current:",current);
 			document.getElementById('timer').innerText="Time:";
 			document.getElementById('question').innerText=questions[current].q;
@@ -276,8 +278,10 @@
 
 		
 		loadquestion ();
-		loadplt();*/
-		let time={{minutes | default:(30)}}*60;
+		loadplt();
+		}*/
+		//let time={{ minutes|default(0) }}*60;
+		let time={{minutes}}*60;
 		let timer=setInterval(function() {
 			let hours=Math.floor(time/3600);
 			let minutes=Math.floor((time%3600)/60);
@@ -291,13 +295,14 @@
 				document.body.innerHTML="<h3>Time Over<br>Your Score:"+score+"</h3>";
 			}
 		},1000);
+	
 
 		function checkanswer(ans)
 		{
 			if (questions[current].attempted) return;
 			questions[current].attempted= true;
 			loadplt();
-			let correct=questions[current].answer;
+			let correct=questions[current][7];
 
 			if (ans==correct)
 			{
