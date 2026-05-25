@@ -5,8 +5,8 @@ app=Flask(__name__)
 app.secret_key="anquiz"
 conn=sqlite3.connect("users.db")
 cur=conn.cursor()
-cur.execute("""
-CREATE TABLE IF NOT EXISTS users(username TEXT , password TEXT , email TEXT)""")
+cur.execute(
+"CREATE TABLE IF NOT EXISTS users(username TEXT , password TEXT , email TEXT)")
 conn.commit()
 conn.close()
 
