@@ -43,8 +43,8 @@
 <h4 id="timer" style="background-color:lightcyan; font-family:inherit;border-block:ridge;border-radius:9px;border-style:outset;border-color:yellowgreen;">Time:30</h4>
 	<script>
 		let score=0;
-		//let questions={{questions|tojson}};
-			let questions= [
+		let questions={{questions|tojson |safe}};
+			/*let questions= [
 				{% for q in questions %}
 			{
 				q:"{{q[2]}}",
@@ -60,7 +60,7 @@
 				review:false
 			},
 			{% endfor %}
-		];
+		];*/
 		console.log(questions);
 		console.log(questions[0]);;
 		/*let questions= [
@@ -236,6 +236,10 @@
 		let current=0;
 		function loadquestion()
 		{
+		console.log(questions);
+		console.log(current);
+		console.log(questions[current]);
+	
 			if (!questions || questions.length==0) {
 			document.getElementById('question').innerText="No Question Available";
 				return;		
@@ -247,11 +251,11 @@
 			}
 			console.log("current:",current);
 			document.getElementById('timer').innerText="Time:";
-			document.getElementById('question').innerText=questions[current][2];
-			document.getElementById('op1').innerText=questions[current][3];
-			document.getElementById('op2').innerText=questions[current][4];
-			document.getElementById('op3').innerText=questions[current][5];
-			document.getElementById('op4').innerText=questions[current][6];
+			document.getElementById('question').innerText=questions[current].q;
+			document.getElementById('op1').innerText=questions[current].options[0];
+			document.getElementById('op2').innerText=questions[current].options[1];
+			document.getElementById('op3').innerText=questions[current].options[2];
+			document.getElementById('op4').innerText=questions[current].options[3];
 
 			document.getElementById("op1").style.background="";
 			document.getElementById("op2").style.background="";
@@ -303,7 +307,7 @@
 			if (questions[current].attempted) return;
 			questions[current].attempted= true;
 			loadplt();
-			let correct=questions[current][7];
+			let correct=questions[current].answer;
 
 			if (ans==correct)
 			{
@@ -455,6 +459,7 @@
 				plt.appendChild(btn);
 			}
 		}
+		loadquestion ();
 </script>
 <h5 align="center"><input type="button" style="background-color: cyan;">&nbsp;=&nbsp;Current Question&nbsp;&nbsp;&nbsp;<input type="button" style="background-color:red;">&nbsp;=&nbsp;Unattempt Questions&nbsp;&nbsp;&nbsp;<input type="button" style="background-color:green;">&nbsp;=&nbsp;Attempted Question&nbsp;&nbsp;&nbsp;<input type="button" style="background-color: maroon;">&nbsp;=&nbsp;Mark for Review
 <br><br>
