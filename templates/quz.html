@@ -307,7 +307,7 @@
 			if (questions[current].attempted) return;
 			questions[current].attempted= true;
 			loadplt();
-			let correct=questions[current].answer;
+			let correct=questions[current].answer.toUpperCase();
 
 			if (ans==correct)
 			{
