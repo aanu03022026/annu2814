@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0">
 	<style> 
-		/*body{
+		body{
   margin:0;
   padding:0;
   font-family:sans-serif;
@@ -18,8 +18,8 @@
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
-}*/
-body{margin:0;height:100vh;background: linear-gradient(135deg,#1e3c72,#2a5298); flex-direction:column;}
+}
+/*body{margin:0;height:100vh;background: linear-gradient(135deg,#1e3c72,#2a5298); flex-direction:column;}*/
 a{text-decoration:none;color:whitesmoke;font-weight:bold;}
 .box{width: 250px;text-align:center; padding: 20px;border-radius: 20px;background: rgba(255, 255, 0, 0.1); backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); transition: 0.3s;font-size:20px;flex:1 1 250px}
 .ctnt a:hover{transform: scale(1.2);color:#fa8072;}
@@ -45,7 +45,8 @@ h1{font-size: 4vw;
   letter-spacing: 2px;
   animation: fadeMove 3s ease-in-out infinite;}
 @keyframes fadeMove{0%{opacity: 1.2;transform: translateY(8px);}50%{opacity: 2;transform: translateY(0px);}100%{opacity: 1.2;transform: translateY(8px);}}
-	</style>
+.thumb{width: 100%; height: 100px; border-radius: 15px; object-fit: cover; margin-bottom:15px;}
+  </style>
 </head>
 <body>
   <h1 align="center"><b><i><font class="prashn">प्रश्न</font><font class="ans">ANSWER</font></i></b></h1>
@@ -58,28 +59,35 @@ h1{font-size: 4vw;
   {% endif %}
   <div class="container">
     <div class="box">
+      <img src="{{url_for('static', filename='images/reasoning.jpg')}}"  class="thumb">
       <h2 class="head">>>>Mini test<<<</h2>
       <ul type="circle" class="ctnt">
         <li  ><a href="/quiz/Reasoning/5/20" onclick="return confirm('After Pressing OK button Your Test Start....')">Reasoning Test</a></li>
       </ul>
     </div>
     <div class="box">
+      <img src="{{url_for('static', filename='images/session.jpg')}}"  class="thumb">
       <h2 class="head">>>>Sessional Test<<<</h2>
       <ul type="circle" class="ctnt">
         <li > Previous Year Ques.</li>
       </ul>
     </div>
     <div class="box">
+      <img src="{{url_for('static', filename='images/pyq.jpg')}}"  class="thumb">
       <h2 class="head">>>>PYQ's<<<</h2>
       <ul type="circle" class="ctnt">
         <li>English Notes</li>
       </ul>
     </div>
+
+    
   </div>
+  <br><br><h4 align="center" style=" background-color: #df71d8;font-family:cursive;font-style: italic;font-variant-caps: titling-caps;color: #0d0d0e;font-size:20px;"><marquee>More content coming soon...</marquee></h4><br><br>
   {% if username %}
   <a href ="/logout" style="display:block;text-align:center;margin-top:20px;font-weight:bold;">
     <button style="border-radius:4px; background-color: aquamarine;font-family:helvetica;;">Logout</button>
     </a>
 {% endif %}
+<h6 style="font-family: cursive;font-size:10px;color:floralwhite">© 2026 प्रश्नANSWER | Created By Anurag </h6>
 </body>
 </html>
