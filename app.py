@@ -62,7 +62,7 @@ def admin():
     return render_template("admin.html")
 @app.route("/addquestion", methods=["POST"])
 def addquestion():
-    subjectname=request.form["subjectname"]
+    subjectname=request.form["subjectname"].lower()
     question=request.form["question"]
     option1=request.form["option1"]
     option2=request.form["option2"]
@@ -127,6 +127,7 @@ def quizp():
 '''
 @app.route("/quiz/<subjectname>/<int:limit>/<int:minutes>")
 def quizp(subjectname , limit , minutes):
+    subjectname=subjectname.lower()
     if "user" in session:
         conn=sqlite3.connect("question.db")
         cur=conn.cursor()
@@ -134,6 +135,8 @@ def quizp(subjectname , limit , minutes):
         cur.execute(
             """SELECT * FROM questions WHERE subjectname=? ORDER BY RANDOM() LIMIT ?""",(subjectname,limit))
         questions=cur.fetchall()
+
+        print("Questions Found=",len(questions))
 
         conn.close()
 
