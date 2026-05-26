@@ -12,7 +12,7 @@ conn.close()
 
 import os
 conn=sqlite3.connect("question.db")
-print(os.path.abspath("question.db")
+print(os.path.abspath("question.db"))
 cur=conn.cursor()
 cur.execute("""
 CREATE TABLE IF NOT EXISTS questions(id INTEGER PRIMARY KEY AUTOINCREMENT,
