@@ -10,7 +10,9 @@ cur.execute(
 conn.commit()
 conn.close()
 
+import os
 conn=sqlite3.connect("question.db")
+print(os.path.abspath("question.db")
 cur=conn.cursor()
 cur.execute("""
 CREATE TABLE IF NOT EXISTS questions(id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -62,7 +64,7 @@ def admin():
     return render_template("admin.html")
 @app.route("/addquestion", methods=["POST"])
 def addquestion():
-    subjectname=request.form["subjectname"].lower()
+    subjectname=request.form["subjectname"].lower().strip()
     question=request.form["question"]
     option1=request.form["option1"]
     option2=request.form["option2"]
@@ -127,7 +129,7 @@ def quizp():
 '''
 @app.route("/quiz/<subjectname>/<int:limit>/<int:minutes>")
 def quizp(subjectname , limit , minutes):
-    subjectname=subjectname.lower()
+    subjectname=subjectname.lower().strip()
     if "user" in session:
         conn=sqlite3.connect("question.db")
         cur=conn.cursor()
