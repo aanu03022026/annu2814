@@ -34,10 +34,10 @@
 <h1  style="font-family:Cursive;font-weight:bold;background-color:darkcyan;color:darkred; margin-top:40px;"><marquee> SSc GD Test {Reasoning......}</marquee></h1>
 <div class="container">
 	<h1 id="question"></h1>
-	<button style="color:burlywood;font-family:unset;border-color:darkred;border-radius:10px;cursor:pointer;" class="option-btn" id="op1" onclick="checkanswer('A')"></button>
-	<button style="color:burlywood;font-family:unset;border-color:darkred;border-radius:10px;cursor:pointer;" class="option-btn" id="op2" onclick="checkanswer('B')"></button>
-	<button style="color:burlywood;font-family:unset;border-color:darkred;border-radius:10px;cursor:pointer;" class="option-btn" id="op3" onclick="checkanswer('C')"></button>
-	<button style="color:burlywood;font-family:unset;border-color:darkred;border-radius:10px;cursor:pointer;" class="option-btn" id="op4" onclick="checkanswer('D')"></button>
+	<button style="color:burlywood;font-family:unset;border-color:darkred;border-radius:10px;cursor:pointer;" class="option-btn" id="op1" onclick="checkanswer('1')"></button>
+	<button style="color:burlywood;font-family:unset;border-color:darkred;border-radius:10px;cursor:pointer;" class="option-btn" id="op2" onclick="checkanswer('2')"></button>
+	<button style="color:burlywood;font-family:unset;border-color:darkred;border-radius:10px;cursor:pointer;" class="option-btn" id="op3" onclick="checkanswer('3')"></button>
+	<button style="color:burlywood;font-family:unset;border-color:darkred;border-radius:10px;cursor:pointer;" class="option-btn" id="op4" onclick="checkanswer('4')"></button>
 </div>
 <div id="plt" align="right" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin:20px;"></div>
 <h4 id="timer" style="background-color:lightcyan; font-family:inherit;border-block:ridge;border-radius:9px;border-style:outset;border-color:yellowgreen;">Time:30</h4>
@@ -311,15 +311,15 @@
 
 			if (ans==correct)
 			{
-				document.getElementById('op'+(["A","B","C","D"].indexOf(ans)+1)).style.background="green";
+				document.getElementById('op'+(["1","2","3","4"].indexOf(ans)+1)).style.background="green";
 				score++
 			}
 			else
 			{
-				document.getElementById("op"+(["A","B","C","D"].indexOf(ans)+1)).style.background="red";
+				document.getElementById("op"+(["1","2","3","4"].indexOf(ans)+1)).style.background="red";
 				score=score-0.25
 
-				document.getElementById('op'+(["A","B","C","D"].indexOf(correct)+1)).style.background="green";
+				document.getElementById('op'+(["1","2","3","4"].indexOf(correct)+1)).style.background="green";
 			}
 			
 					/*setTimeout(()=>
